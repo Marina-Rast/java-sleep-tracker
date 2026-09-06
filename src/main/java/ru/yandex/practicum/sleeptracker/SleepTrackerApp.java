@@ -10,8 +10,7 @@ public class SleepTrackerApp {
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        SleepTrackerApp.class.getClassLoader().getResourceAsStream
-                                ("sleep_log.txt")))) {
+                        SleepTrackerApp.class.getClassLoader().getResourceAsStream("sleep_log.txt")))) {
 
             List<SleepingSession> sessions = reader.lines()
                     .map(line -> line.split(";"))
