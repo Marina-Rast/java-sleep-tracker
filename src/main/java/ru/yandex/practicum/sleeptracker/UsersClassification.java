@@ -7,30 +7,25 @@ import java.util.stream.Collectors;
 
 class UsersClassification implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
-    public enum Chronotype {
-        OWL,
-        LARK,
-        PIGEON
-    }
-
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         if (sessions.isEmpty()) {
-            return new SleepAnalysisResult("Тип пользователя", "голубь");
+            return new SleepAnalysisResult("Тип пользователя", Chronotype.PIGEON);
         }
 
-        Map<String, Long> countMap = sessions.stream()
-                .filter(session -> !session.getStart().toLocalDate().equals(session.getFinish().toLocalDate()))
+        Map<ru.yandex.practicum.sleeptracker.Chronotype, Long> countMap = sessions.stream()
+                .filter(session ->
+                        !session.getStart().toLocalDate().equals(session.getFinish().toLocalDate()))
                 .map(session -> {
                     int start = session.getStart().getHour();
                     int finish = session.getFinish().getHour();
 
                     if (start >= 23 && finish >= 9) {
-                        return "сова";
+                        return Chronotype.OWL;
                     } else if (start < 22 && finish < 7) {
-                        return "жаворонок";
+                        return Chronotype.LARK;
                     } else {
-                        return "голубь";
+                        return Chronotype.PIGEON;
                     }
                 })
                 .collect(Collectors.groupingBy(
@@ -39,21 +34,21 @@ class UsersClassification implements Function<List<SleepingSession>, SleepAnalys
                 ));
 
         if (countMap.isEmpty()) {
-            return new SleepAnalysisResult("Тип пользователя", "голубь");
+            return new SleepAnalysisResult("Тип пользователя", Chronotype.PIGEON);
         }
 
         long maxCount = countMap.values().stream()
                 .max(Long::compareTo)
                 .orElse(0L);
 
-        List<String> maxTypes = countMap.entrySet().stream()
+        List<Chronotype> maxTypes = countMap.entrySet().stream()
                 .filter(entry -> entry.getValue() == maxCount)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
-        String resultType;
+        Chronotype resultType;
         if (maxTypes.size() > 1) {
-            resultType = "голубь";
+            resultType = Chronotype.PIGEON;
         } else {
             resultType = maxTypes.get(0);
         }

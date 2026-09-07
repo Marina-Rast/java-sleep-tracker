@@ -15,7 +15,7 @@ class UsersClassificationTest {
         List<SleepingSession> sessions = List.of();
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals("голубь", result.getValue());
+        assertEquals(Chronotype.PIGEON, result.getValue());
         assertEquals("Тип пользователя", result.getDescription());
         assertEquals("Тип пользователя: голубь", result.toString());
     }
@@ -30,7 +30,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals("сова", result.getValue());
+        assertEquals(Chronotype.OWL, result.getValue());
         assertEquals("Тип пользователя: сова", result.toString());
     }
 
@@ -44,7 +44,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals("жаворонок", result.getValue());
+        assertEquals(Chronotype.LARK, result.getValue());
         assertEquals("Тип пользователя: жаворонок", result.toString());
     }
 
@@ -57,7 +57,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals("голубь", result.getValue());
+        assertEquals(Chronotype.PIGEON, result.getValue());
         assertEquals("Тип пользователя: голубь", result.toString());
     }
 
@@ -70,7 +70,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals("сова", result.getValue());
+        assertEquals(Chronotype.OWL, result.getValue());
         assertEquals("Тип пользователя: сова", result.toString());
     }
 }

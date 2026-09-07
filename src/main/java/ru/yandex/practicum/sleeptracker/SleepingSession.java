@@ -10,12 +10,6 @@ public class SleepingSession {
     private LocalDateTime finish;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
     private Quality quality;
-
-    public enum Quality{
-        GOOD,
-        NORMAL,
-        BAD;
-    }
     private Duration duration;
 
 
