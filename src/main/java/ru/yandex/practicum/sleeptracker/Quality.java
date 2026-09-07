@@ -1,6 +1,6 @@
 package ru.yandex.practicum.sleeptracker;
 
-public enum Quality{
+public enum Quality {
     GOOD,
     NORMAL,
     BAD;
