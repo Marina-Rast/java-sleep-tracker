@@ -15,8 +15,8 @@ class UsersClassificationTest {
         List<SleepingSession> sessions = List.of();
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals(3, result.getValue());
-        assertEquals("Тип пользователя", result.getResult());
+        assertEquals("голубь", result.getValue());
+        assertEquals("Тип пользователя", result.getDescription());
         assertEquals("Тип пользователя: голубь", result.toString());
     }
 
@@ -30,7 +30,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals(2, result.getValue());
+        assertEquals("сова", result.getValue());
         assertEquals("Тип пользователя: сова", result.toString());
     }
 
@@ -44,7 +44,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals(1, result.getValue());
+        assertEquals("жаворонок", result.getValue());
         assertEquals("Тип пользователя: жаворонок", result.toString());
     }
 
@@ -57,7 +57,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals(3, result.getValue());
+        assertEquals("голубь", result.getValue());
         assertEquals("Тип пользователя: голубь", result.toString());
     }
 
@@ -70,7 +70,7 @@ class UsersClassificationTest {
 
         SleepAnalysisResult result = usersClassification.apply(sessions);
 
-        assertEquals(2, result.getValue());
+        assertEquals("сова", result.getValue());
         assertEquals("Тип пользователя: сова", result.toString());
     }
 }

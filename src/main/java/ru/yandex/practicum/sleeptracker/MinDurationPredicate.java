@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
-public class MinDurationSession implements Function<List<SleepingSession>, SleepAnalysisResult> {
+public class MinDurationPredicate implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {

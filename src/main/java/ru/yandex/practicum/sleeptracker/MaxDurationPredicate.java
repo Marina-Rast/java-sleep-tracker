@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
-public class MaxDurationSessions implements Function<List<SleepingSession>, SleepAnalysisResult> {
+public class MaxDurationPredicate implements Function<List<SleepingSession>, SleepAnalysisResult> {
 
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {

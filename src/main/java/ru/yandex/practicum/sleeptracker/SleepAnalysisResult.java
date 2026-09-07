@@ -1,33 +1,25 @@
 package ru.yandex.practicum.sleeptracker;
 
 public class SleepAnalysisResult {
-    private String result;
-    private int value;
+    private String description;
+    private Object value;
 
-    public SleepAnalysisResult(String result, int value) {
-        this.result = result;
+    public SleepAnalysisResult(String description, Object value) {
+        this.description = description;
         this.value = value;
     }
 
-    public String getResult() {
-        return result;
+    public String getDescription() {
+        return description;
     }
 
-    public int getValue() {
+    public Object getValue() {
         return value;
     }
 
+
     @Override
     public String toString() {
-        if ("Тип пользователя".equals(result)) {
-            String typeName = "голубь";
-            if (value == 1) {
-                typeName = "жаворонок";
-            } else if (value == 2) {
-                typeName = "сова";
-            }
-            return result + ": " + typeName;
-        }
-        return result + ": " + value;
+        return description + ": " + value;
     }
 }

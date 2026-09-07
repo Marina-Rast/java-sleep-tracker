@@ -15,7 +15,7 @@ class SleeplessNightTest {
         List<SleepingSession> sessions = List.of();
         SleepAnalysisResult result = sleeplessNight.apply(sessions);
         assertEquals(0, result.getValue());
-        assertEquals("Количество бессонных ночей", result.getResult());
+        assertEquals("Количество бессонных ночей", result.getDescription());
     }
 
     @Test

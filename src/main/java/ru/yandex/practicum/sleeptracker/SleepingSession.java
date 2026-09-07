@@ -8,16 +8,21 @@ public class SleepingSession {
 
     private LocalDateTime start;
     private LocalDateTime finish;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
+    private Quality quality;
 
-    private String quality;
+    public enum Quality{
+        GOOD,
+        NORMAL,
+        BAD;
+    }
     private Duration duration;
 
 
     public SleepingSession(String start, String finish, String quality) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
-        this.start = LocalDateTime.parse(start, formatter);
-        this.finish = LocalDateTime.parse(finish, formatter);
-        this.quality = quality;
+        this.start = LocalDateTime.parse(start, FORMATTER);
+        this.finish = LocalDateTime.parse(finish, FORMATTER);
+        this.quality = Quality.valueOf(quality);
         this.duration = Duration.between(this.start, this.finish);
     }
 
@@ -33,8 +38,7 @@ public class SleepingSession {
         return duration;
     }
 
-    public String getQuality() {
+    public Quality getQuality() {
         return quality;
     }
-
 }
