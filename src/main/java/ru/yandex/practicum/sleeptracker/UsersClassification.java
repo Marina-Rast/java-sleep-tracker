@@ -20,8 +20,7 @@ class UsersClassification implements Function<List<SleepingSession>, SleepAnalys
         }
 
         Map<String, Long> countMap = sessions.stream()
-                .filter(session -> !session.getStart().toLocalDate().equals(session.getFinish().
-                        toLocalDate()))
+                .filter(session -> !session.getStart().toLocalDate().equals(session.getFinish().toLocalDate()))
                 .map(session -> {
                     int start = session.getStart().getHour();
                     int finish = session.getFinish().getHour();
